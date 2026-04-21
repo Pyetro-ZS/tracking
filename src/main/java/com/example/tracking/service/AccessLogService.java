@@ -18,19 +18,29 @@ public class AccessLogService {
         this.repository = repository;
     }
 
-    public void save(String qrId, String userAgent, String ip) {
-
-        if (qrId == null || qrId.length() > 100) {
+    public void save(String qrId, String userAgent, String ip, String referer) {
+        if (qrId == null || qrId.trim().isEmpty() || qrId.length() > 100) {
             throw new IllegalArgumentException("qrId inválido");
         }
-
         AccessLog log = new AccessLog();
         log.setQrId(qrId);
         log.setTimestamp(LocalDateTime.now());
-        log.setUserAgent(userAgent);
+        log.setUserAgent(userAgent != null ? userAgent : "");
         log.setIpHash(HashUtil.sha256(ip));
-
+        log.setReferer(referer);
         repository.save(log);
+    }
+
+    public long countAll() {
+        return repository.count();
+    }
+
+    public long countByQrId(String qrId) {
+        return repository.countByQrId(qrId);
+    }
+
+    public List<AccessLog> findLast(int limit) {
+        return repository.findTopNByOrderByTimestampDesc(limit);
     }
 
     public List<AccessLog> findAll() {
