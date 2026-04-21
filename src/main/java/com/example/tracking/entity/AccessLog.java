@@ -13,8 +13,18 @@ public class AccessLog {
 
     private String qrId;
     private LocalDateTime timestamp;
+
     private String userAgent;
     private String ipHash;
+    private String referer;
+
+    public String getReferer() {
+        return referer;
+    }
+
+    public void setReferer(String referer) {
+        this.referer = referer;
+    }
 
     public UUID getId() {
         return id;
