@@ -5,10 +5,13 @@ import java.security.MessageDigest;
 
 public class HashUtil {
 
+    private static final String SALT = "qrtrack2026"; // Salt fixo simples
+
     public static String sha256(String value) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(value.getBytes(StandardCharsets.UTF_8));
+            String salted = value + SALT;
+            byte[] hash = digest.digest(salted.getBytes(StandardCharsets.UTF_8));
 
             StringBuilder hex = new StringBuilder();
             for (byte b : hash) {
@@ -21,7 +24,7 @@ public class HashUtil {
 
             return hex.toString();
 
-        } catch (Exception e) {
+        } catch (java.security.NoSuchAlgorithmException | java.lang.RuntimeException e) {
             throw new RuntimeException("Erro ao gerar hash", e);
         }
     }
