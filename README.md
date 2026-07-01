@@ -1,14 +1,14 @@
-# 📊 QR Code Access Tracking (Spring Boot)
+# QR Code Access Tracking (Spring Boot)
 
 Projeto simples de monitoramento de acessos baseado em QR Code e links diretos, com foco em coleta passiva de dados e testes via API.
 
-## 📌 Objetivo
+## Objetivo
 
 Simular um cenário real onde acessos vindos de QR Codes (como em eventos, cartazes ou campanhas físicas) possam ser registrados automaticamente, sem exigir login ou qualquer interação do usuário.
 
 ---
 
-## ⚙️ Tecnologias utilizadas
+## Tecnologias utilizadas
 
 * Java 17+
 * Spring Boot
@@ -18,7 +18,7 @@ Simular um cenário real onde acessos vindos de QR Codes (como em eventos, carta
 
 ---
 
-## 🚀 Como funciona
+## Como funciona
 
 1. O usuário acessa um link (ou escaneia um QR Code)
 2. O endpoint `/track` recebe a requisição
@@ -27,7 +27,7 @@ Simular um cenário real onde acessos vindos de QR Codes (como em eventos, carta
 
 ---
 
-## 🔗 Endpoint principal
+## Endpoint principal
 
 ```bash
 GET /track?qrId=abc123
@@ -35,7 +35,7 @@ GET /track?qrId=abc123
 
 ---
 
-## 📥 Dados coletados
+## Dados coletados
 
 * `timestamp` → data e hora do acesso
 * `qrId` → identificador do QR Code
@@ -45,9 +45,9 @@ GET /track?qrId=abc123
 
 ---
 
-## 📊 Endpoints disponíveis
+## Endpoints disponíveis
 
-### 🔹 Registrar acesso
+### Registrar acesso
 
 ```bash
 GET /track?qrId=abc123
@@ -59,7 +59,7 @@ Retorna:
 
 ---
 
-### 🔹 Listar todos os acessos
+### Listar todos os acessos
 
 ```bash
 GET /logs
@@ -73,7 +73,7 @@ Authorization: Bearer admin123
 
 ---
 
-### 🔹 Filtrar por QR Code
+### Filtrar por QR Code
 
 ```bash
 GET /logs?qrId=abc123
@@ -95,7 +95,7 @@ Retorna:
 
 ---
 
-## 🔐 Segurança básica
+## Segurança básica
 
 * Hash de IP com SHA-256 + salt
 * Validação de parâmetros (`qrId`)
@@ -103,7 +103,7 @@ Retorna:
 
 ---
 
-## 🧪 Testes com Insomnia
+## Testes com Insomnia
 
 Exemplo de requisição:
 
@@ -160,7 +160,7 @@ cd tracking
 
 ---
 
-## 💡 Possíveis aplicações
+## Possíveis aplicações
 
 * Monitoramento de campanhas com QR Code
 * Análise de acessos offline → online
@@ -168,7 +168,7 @@ cd tracking
 
 ---
 
-## 📈 Próximos passos
+## Próximos passos
 
 * Dashboard de visualização
 * Integração com banco real (PostgreSQL)
@@ -177,13 +177,13 @@ cd tracking
 
 ---
 
-## ⚠️ Observações
+## Observações
 
 Este projeto é um protótipo com foco educacional e de portfólio.
 Não deve ser utilizado em produção sem melhorias adicionais de segurança.
 
 ---
 
-## 🤝 Contribuição
+## Contribuição
 
 Sugestões e melhorias são bem-vindas.
